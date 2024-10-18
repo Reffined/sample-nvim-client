@@ -14,7 +14,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	apis, err := v.APIInfo()
 	if err != nil {
 		panic(err)
 	}
