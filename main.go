@@ -1,10 +1,8 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
-	"os"
 
 	"github.com/neovim/go-client/nvim"
 )
@@ -20,16 +18,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	apiFile, err := os.Create("api-info.json")
-	if err != nil {
-		panic(err)
-	}
-	js, err := json.Marshal(apis)
-	if err != nil {
-		panic(err)
-	}
-	apiFile.WriteString(string(js))
-
 	v.Subscribe("redraw")
 	v.RegisterHandler("redraw", func(args []any) {
 		if args[0] == "grid_line" {
